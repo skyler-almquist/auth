@@ -1,7 +1,14 @@
 class CompaniesController < ApplicationController
 
   def index
+    if @current_user
     @companies = Company.all
+  
+      
+    else
+      redirect_to "/login"
+      
+    end
   end
 
   def show

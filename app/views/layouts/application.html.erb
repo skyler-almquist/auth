@@ -9,9 +9,16 @@
     <%= stylesheet_link_tag "application" %>
   </head>
 
-  <body>
-    <p>
-      <a href="/users/new">Sign Up</a>
+  <body><p>
+  <% if @current_user %>
+     Hi <%= @current_user["first_name"]%>
+     <a href="/logout">Logout</a>
+     <%else%>
+     <a href="/users/new">Sign Up </a>
+     <a href="/login"> Login </a>
+     <%end%>
+    <% session["user_id"]%>
+      
     </p>
 
     <p>
